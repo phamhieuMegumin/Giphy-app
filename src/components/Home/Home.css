@@ -1,0 +1,7 @@
+.home-page {
+  text-align: center;
+  margin-top: 20px;
+}
+.home-page > h1 {
+  margin-bottom: 20px;
+}

@@ -1,0 +1,17 @@
+.ListItems {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.img-box {
+  width: 300px;
+  height: 250px;
+  margin: 10px 20px;
+  overflow: hidden;
+}
+.img-box img {
+  width: 100%;
+}
+.btn-add {
+  margin-bottom: 20px;
+}
