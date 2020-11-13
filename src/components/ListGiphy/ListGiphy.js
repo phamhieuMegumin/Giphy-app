@@ -13,6 +13,7 @@ function ListGiphy() {
         `http://api.giphy.com/v1/gifs/trending?api_key=JjiRVm3bXZXAkfwAccSJB7bGELIXtT11&limit=${total}`
       );
       const res = await response.json();
+      console.log(res);
       setGiphy(res.data);
     };
     getData();
