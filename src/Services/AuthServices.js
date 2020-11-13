@@ -39,7 +39,7 @@ export default {
     const response = await fetch(
       "https://server-giphy.herokuapp.com/user/authenticated",
       {
-        mode="no-cors"
+        mode: "no-cors",
       }
     );
     console.log(response);
