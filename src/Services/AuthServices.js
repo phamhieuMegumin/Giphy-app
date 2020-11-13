@@ -36,7 +36,9 @@ export default {
     return await response.json();
   },
   isAuthenticated: async () => {
-    const response = await fetch("/user/authenticated");
+    const response = await fetch(
+      "https://server-giphy.herokuapp.com/user/authenticated"
+    );
     if (response.status !== 401) {
       //passport middleware auto send status 401 when authenticated
       return await response.json();
