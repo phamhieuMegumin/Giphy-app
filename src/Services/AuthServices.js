@@ -43,6 +43,7 @@ export default {
       }
     );
     if (response.status !== 401) {
+      console.log(response.status);
       //passport middleware auto send status 401 when authenticated
       return await response.json();
     } else return { isAuthenticated: false, user: { username: "", role: "" } };
