@@ -38,9 +38,6 @@ export default {
   isAuthenticated: async () => {
     const response = await fetch(
       "https://server-giphy.herokuapp.com/user/authenticated",
-      {
-        mode: "no-cors",
-      }
     );
     console.log(response);
     if (response.status !== 401) {
