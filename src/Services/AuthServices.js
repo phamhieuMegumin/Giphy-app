@@ -1,12 +1,15 @@
 export default {
   login: async (user) => {
-    const response = await fetch("/user/login", {
-      method: "post",
-      body: JSON.stringify(user),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://server-giphy.herokuapp.com/user/login",
+      {
+        method: "post",
+        body: JSON.stringify(user),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     if (response.status !== 401) {
       return await response.json();
@@ -22,17 +25,22 @@ export default {
     }
   },
   register: async (user) => {
-    const response = await fetch("/user/register", {
-      method: "post",
-      body: JSON.stringify(user),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://server-giphy.herokuapp.com/user/register",
+      {
+        method: "post",
+        body: JSON.stringify(user),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     return await response.json();
   },
   logout: async () => {
-    const response = await fetch("/user/logout");
+    const response = await fetch(
+      "https://server-giphy.herokuapp.com/user/logout"
+    );
     return await response.json();
   },
   isAuthenticated: async () => {
