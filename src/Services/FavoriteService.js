@@ -3,6 +3,7 @@ export default {
     const response = await fetch(
       "https://server-giphy.herokuapp.com/user/favorites"
     );
+    console.log(response);
     if (response.status !== 401) {
       return await response.json();
     } else
