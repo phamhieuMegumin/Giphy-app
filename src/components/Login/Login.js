@@ -16,20 +16,15 @@ function Login() {
   };
   const authContext = useContext(AuthContext);
   const history = useHistory();
-  const test = {
-    username: "phamquanghieu8820",
-    password: "123456",
-  };
   const onSubmit = (e) => {
     e.preventDefault();
 
-    AuthService.login(test).then((data) => {
-      // console.log(data);
+    AuthService.login(user).then((data) => {
       const { isAuthenticated, user, message } = data;
       if (isAuthenticated) {
         authContext.setUser(user);
         authContext.setIsAuthenticated(isAuthenticated);
-        history.push("/");
+        history.push("/Giphy-app");
       } else {
         setMessage(message);
       }

@@ -14,15 +14,15 @@ function App() {
       <NavBar />
       <div className="container">
         <Route exact path="/Giphy-app" component={Home} />
-        <Route path="Giphy-app/login" component={Login} />
-        <UnPrivateRoute path="Giphy-app/register" component={Register} />
+        <Route path="/Giphy-app/login" component={Login} />
+        <UnPrivateRoute path="/Giphy-app/register" component={Register} />
         <PrivateRoute
-          path="Giphy-app/favorites"
+          path="/Giphy-app/favorites"
           roles={["user", "admin"]}
           component={Todos}
         />
         <PrivateRoute
-          path="Giphy-app/admin"
+          path="/Giphy-app/admin"
           roles={["admin"]}
           component={Admin}
         />

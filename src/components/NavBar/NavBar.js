@@ -31,14 +31,14 @@ function ShowNavBar() {
     return (
       <>
         <NavItem>
-          <Link to="/">Home</Link>
+          <Link to="/Giphy-app">Home</Link>
         </NavItem>
         <NavItem>
-          <Link to="/favorites">Favorites</Link>
+          <Link to="/Giphy-app/favorites">Favorites</Link>
         </NavItem>
         {user.role === "admin" ? (
           <NavItem>
-            <Link to="/admin">Admin</Link>
+            <Link to="/Giphy-app/admin">Admin</Link>
           </NavItem>
         ) : null}
         <Button onClick={handleLogout}>Logout</Button>
@@ -49,13 +49,13 @@ function ShowNavBar() {
     return (
       <>
         <NavItem>
-          <Link to="/">Home</Link>
+          <Link to="/Giphy-app">Home</Link>
         </NavItem>
         <NavItem>
-          <Link to="/login">Login</Link>
+          <Link to="/Giphy-app/login">Login</Link>
         </NavItem>
         <NavItem>
-          <Link to="/register">Register</Link>
+          <Link to="/Giphy-app/register">Register</Link>
         </NavItem>
       </>
     );
@@ -63,7 +63,7 @@ function ShowNavBar() {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <Link to="/">
+        <Link to="/Giphy-app">
           <NavbarBrand>Logo</NavbarBrand>
         </Link>
         <NavbarToggler onClick={toggle} />

@@ -31,7 +31,7 @@ function Register() {
       resetForm();
       if (!message.msgError) {
         timerID = setTimeout(() => {
-          history.push("/login");
+          history.push("/Giphy-app/login");
         }, 2000);
       }
     });
