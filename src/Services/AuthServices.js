@@ -1,3 +1,4 @@
+import Cookie from "js-cookie";
 export default {
   login: async (user) => {
     const response = await fetch(
@@ -12,7 +13,9 @@ export default {
     );
 
     if (response.status !== 401) {
-      return await response.json();
+      const data = await response.json();
+      localStorage.setItem("auth_token", data.token);
+      return data;
     } else {
       const message = {
         isAuthenticated: false,
@@ -45,7 +48,14 @@ export default {
   },
   isAuthenticated: async () => {
     const response = await fetch(
-      "https://server-giphy.herokuapp.com/user/authenticated"
+      "https://server-giphy.herokuapp.com/user/authenticated",
+      {
+        method: "get",
+        headers: {
+          "Content-Type": "application/json",
+          auth_token: localStorage.getItem("auth_token"),
+        },
+      }
     );
     if (response.status !== 401) {
       console.log(response.status);

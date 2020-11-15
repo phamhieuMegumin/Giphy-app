@@ -1,7 +1,14 @@
 export default {
   getFavorite: async () => {
     const response = await fetch(
-      "https://server-giphy.herokuapp.com/user/favorites"
+      "https://server-giphy.herokuapp.com/user/favorites",
+      {
+        method: "get",
+        headers: {
+          "Content-Type": "application/json",
+          auth_token: localStorage.getItem("auth_token"),
+        },
+      }
     );
     console.log(response);
     if (response.status !== 401) {
@@ -19,6 +26,7 @@ export default {
         body: JSON.stringify(favorite),
         headers: {
           "Content-Type": "application/json",
+          auth_token: localStorage.getItem("auth_token"),
         },
       }
     );
