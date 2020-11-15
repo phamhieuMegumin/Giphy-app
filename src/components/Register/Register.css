@@ -2,3 +2,7 @@
   margin-top: 20px;
   width: 500px;
 }
+.container-detail {
+  display: flex;
+  justify-content: center;
+}

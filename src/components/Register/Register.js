@@ -37,44 +37,49 @@ function Register() {
     });
   };
   return (
-    <div className="register-container">
-      <Form onSubmit={onSubmit}>
-        <FormGroup>
-          <Label for="exampleEmail">User</Label>
-          <Input
-            type="text"
-            name="username"
-            id="exampleEmail"
-            value={user.username}
-            placeholder="username"
-            onChange={onChange}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="examplePassword">Password</Label>
-          <Input
-            type="password"
-            name="password"
-            id="examplePassword"
-            value={user.password}
-            placeholder="password"
-            onChange={onChange}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="exampleRole">Role</Label>
-          <Input
-            type="text"
-            name="role"
-            id="exampleRole"
-            value={user.role}
-            placeholder="Role (admin/user)"
-            onChange={onChange}
-          />
-        </FormGroup>
-        <Button>Register</Button>
-        {message ? <Message message={message} /> : null}
-      </Form>
+    <div className="container-detail">
+      <div className="register-container">
+        <h1 style={{ marginBottom: 20 }}>Register</h1>
+        <Form onSubmit={onSubmit}>
+          <FormGroup>
+            <Label for="exampleEmail">User</Label>
+            <Input
+              type="text"
+              name="username"
+              id="exampleEmail"
+              value={user.username}
+              placeholder="username"
+              onChange={onChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="examplePassword">Password</Label>
+            <Input
+              type="password"
+              name="password"
+              id="examplePassword"
+              value={user.password}
+              placeholder="password"
+              onChange={onChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="exampleRole">Role</Label>
+            <Input
+              type="text"
+              name="role"
+              id="exampleRole"
+              value={user.role}
+              placeholder="Role (admin/user)"
+              onChange={onChange}
+            />
+          </FormGroup>
+          <Button color="primary" style={{ marginTop: 20 }}>
+            Register
+          </Button>
+          {message ? <Message message={message} /> : null}
+        </Form>
+      </div>
     </div>
   );
 }

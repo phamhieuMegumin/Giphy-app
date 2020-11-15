@@ -10,10 +10,15 @@ function Todos() {
     });
   }, []);
   return (
-    <div className="favorite-container">
-      {favorites.map((favorite) => {
-        return <FavoriteItems key={favorite._id} listfavorite={favorite} />;
-      })}
+    <div>
+      <h1 style={{ marginBottom: 30, textAlign: "center", marginTop: 20 }}>
+        Your favorite list
+      </h1>
+      <div className="favorite-container">
+        {favorites.map((favorite) => {
+          return <FavoriteItems key={favorite._id} listfavorite={favorite} />;
+        })}
+      </div>
     </div>
   );
 }

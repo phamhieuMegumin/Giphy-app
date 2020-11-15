@@ -10,7 +10,6 @@ export default {
         },
       }
     );
-    console.log(response);
     if (response.status !== 401) {
       return await response.json();
     } else

@@ -31,31 +31,36 @@ function Login() {
     });
   };
   return (
-    <div className="login-container">
-      <Form onSubmit={onSubmit}>
-        <FormGroup>
-          <Label for="exampleEmail">Username</Label>
-          <Input
-            type="text"
-            name="username"
-            id="exampleEmail"
-            placeholder="username"
-            onChange={onChange}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="examplePassword">Password</Label>
-          <Input
-            type="password"
-            name="password"
-            id="examplePassword"
-            placeholder="password"
-            onChange={onChange}
-          />
-        </FormGroup>
-        <Button>Login</Button>
-        {message ? <Message message={message} /> : null}
-      </Form>
+    <div className="container-detail">
+      <div className="login-container">
+        <h1 style={{ marginBottom: 20 }}>Login</h1>
+        <Form onSubmit={onSubmit}>
+          <FormGroup>
+            <Label for="exampleEmail">Username</Label>
+            <Input
+              type="text"
+              name="username"
+              id="exampleEmail"
+              placeholder="username"
+              onChange={onChange}
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="examplePassword">Password</Label>
+            <Input
+              type="password"
+              name="password"
+              id="examplePassword"
+              placeholder="password"
+              onChange={onChange}
+            />
+          </FormGroup>
+          <Button color="primary" style={{ marginTop: 20 }}>
+            Login
+          </Button>
+          {message ? <Message message={message} /> : null}
+        </Form>
+      </div>
     </div>
   );
 }

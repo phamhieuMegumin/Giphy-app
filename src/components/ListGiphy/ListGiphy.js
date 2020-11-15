@@ -2,9 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import GiphyItems from "./GiphyItems";
 import FavoritesService from "../../Services/FavoriteService";
 import { AuthContext } from "../../Context/AuthContext";
+import Modals from "../../Modals/Modals";
 function ListGiphy() {
   const [giphy, setGiphy] = useState([]);
   const [pagination, setPagination] = useState(1);
+  const [isLoad, setIsLoad] = useState(false);
   const total = 15;
   const itemOnPage = 15;
   useEffect(() => {
@@ -13,11 +15,11 @@ function ListGiphy() {
         `http://api.giphy.com/v1/gifs/trending?api_key=JjiRVm3bXZXAkfwAccSJB7bGELIXtT11&limit=${total}`
       );
       const res = await response.json();
-      console.log(res);
       setGiphy(res.data);
     };
     getData();
   }, []);
+
   const authContext = useContext(AuthContext);
   const [message, setMessage] = useState(null);
   const handleOnClick = (data) => {
@@ -37,10 +39,16 @@ function ListGiphy() {
       } else {
         setMessage(message);
       }
+      setIsLoad(true);
     });
+  };
+
+  const showModal = (params) => {
+    setIsLoad(params);
   };
   return (
     <div className="container">
+      {isLoad ? <Modals isLoad={isLoad} showModal={showModal} /> : ""}
       <div className="ListItems">
         {giphy.map((item) => {
           return (

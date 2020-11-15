@@ -22,6 +22,8 @@ function ShowNavBar() {
   const handleLogout = () => {
     AuthServices.logout().then((data) => {
       if (data.success) {
+        console.log("remove");
+        localStorage.removeItem("auth_token");
         setUser(data.user);
         setIsAuthenticated(false);
       }
@@ -41,7 +43,14 @@ function ShowNavBar() {
             <Link to="/Giphy-app/admin">Admin</Link>
           </NavItem>
         ) : null}
-        <Button onClick={handleLogout}>Logout</Button>
+        <NavItem>
+          <Button
+            onClick={handleLogout}
+            style={{ cursor: "pointer", position: "absolute", right: 20 }}
+          >
+            Logout
+          </Button>
+        </NavItem>
       </>
     );
   };

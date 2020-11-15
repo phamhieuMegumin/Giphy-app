@@ -42,7 +42,14 @@ export default {
   },
   logout: async () => {
     const response = await fetch(
-      "https://server-giphy.herokuapp.com/user/logout"
+      "https://server-giphy.herokuapp.com/user/logout",
+      {
+        method: "get",
+        headers: {
+          "Content-Type": "application/json",
+          auth_token: localStorage.getItem("auth_token"),
+        },
+      }
     );
     return await response.json();
   },

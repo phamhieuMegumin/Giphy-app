@@ -13,7 +13,9 @@ function GiphyItems(props) {
         <img src={data}></img>
       </div>
       <div className="btn-add">
-        <Button onClick={onClick}>Add to favorite</Button>
+        <Button color="primary" onClick={onClick}>
+          Add to favorite
+        </Button>
       </div>
     </div>
   );
