@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import { Button, Form, FormGroup, Input, Label, Spinner } from "reactstrap";
 import AuthService from "../../Services/AuthServices";
 import { useHistory } from "react-router-dom";
 import Message from "../Message/Message";
@@ -7,6 +7,7 @@ import "./Register.css";
 function Register() {
   const [user, setUser] = useState({ username: "", password: "", role: "" });
   const [message, setMessage] = useState(null);
+  const [spinner, setSpinner] = useState(false);
   let timerID = useRef(null);
   const history = useHistory();
   useEffect(() => {
@@ -25,15 +26,18 @@ function Register() {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    setSpinner(true);
     AuthService.register(user).then((data) => {
       const { message } = data;
       setMessage(message);
       resetForm();
       if (!message.msgError) {
+        setSpinner(false);
         timerID = setTimeout(() => {
           history.push("/Giphy-app/login");
         }, 2000);
       }
+      setSpinner(false);
     });
   };
   return (
@@ -74,8 +78,17 @@ function Register() {
               onChange={onChange}
             />
           </FormGroup>
-          <Button color="primary" style={{ marginTop: 20 }}>
+          <Button color="primary" style={{ marginTop: 20, marginBottom: 20 }}>
             Register
+            {spinner ? (
+              <Spinner
+                color="light"
+                size="sm"
+                style={{ marginLeft: 10 }}
+              ></Spinner>
+            ) : (
+              ""
+            )}
           </Button>
           {message ? <Message message={message} /> : null}
         </Form>

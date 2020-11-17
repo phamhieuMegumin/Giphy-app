@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import { Button, Form, FormGroup, Input, Label, Spinner } from "reactstrap";
 import AuthService from "../../Services/AuthServices";
 import { AuthContext } from "../../Context/AuthContext";
 import { useHistory } from "react-router-dom";
@@ -10,6 +10,7 @@ function Login() {
     username: "",
     password: "",
   });
+  const [spinner, setSpinner] = useState(false);
   const [message, setMessage] = useState(null);
   const onChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -18,9 +19,10 @@ function Login() {
   const history = useHistory();
   const onSubmit = (e) => {
     e.preventDefault();
-
+    setSpinner(true);
     AuthService.login(user).then((data) => {
       const { isAuthenticated, user, message } = data;
+      setSpinner(false);
       if (isAuthenticated) {
         authContext.setUser(user);
         authContext.setIsAuthenticated(isAuthenticated);
@@ -57,6 +59,15 @@ function Login() {
           </FormGroup>
           <Button color="primary" style={{ marginTop: 20 }}>
             Login
+            {spinner ? (
+              <Spinner
+                color="light"
+                size="sm"
+                style={{ marginLeft: 10 }}
+              ></Spinner>
+            ) : (
+              ""
+            )}
           </Button>
           {message ? <Message message={message} /> : null}
         </Form>
