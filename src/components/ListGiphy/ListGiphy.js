@@ -4,6 +4,7 @@ import GiphyItems from "./GiphyItems";
 function ListGiphy() {
   const [giphy, setGiphy] = useState([]);
   const total = 15;
+
   useEffect(() => {
     const getData = async () => {
       const response = await fetch(

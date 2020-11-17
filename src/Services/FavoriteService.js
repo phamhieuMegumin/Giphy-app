@@ -36,4 +36,18 @@ export default {
         message: { msgBody: "UnAuthorized", msgError: true },
       };
   },
+  delete: async (url) => {
+    const response = await fetch(
+      "https://server-giphy.herokuapp.com/user/delete",
+      {
+        method: "post",
+        body: JSON.stringify(url),
+        headers: {
+          "Content-Type": "application/json",
+          auth_token: localStorage.getItem("auth_token"),
+        },
+      }
+    );
+    return await response.json();
+  },
 };
