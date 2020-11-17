@@ -44,12 +44,13 @@ function ShowNavBar() {
           </NavItem>
         ) : null}
         <NavItem>
-          <Button
+          <a
+            href=" # "
             onClick={handleLogout}
             style={{ cursor: "pointer", position: "absolute", right: 20 }}
           >
             Logout
-          </Button>
+          </a>
         </NavItem>
       </>
     );
