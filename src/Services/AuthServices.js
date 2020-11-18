@@ -23,6 +23,10 @@ export default {
           username: "",
           role: "",
         },
+        message: {
+          msgBody: "username or password is wrong",
+          msgError: true,
+        },
       };
       return message;
     }

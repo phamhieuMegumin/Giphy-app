@@ -40,7 +40,7 @@ function Login() {
           authContext.setIsAuthenticated(isAuthenticated);
           history.push("/Giphy-app");
         } else {
-          setMessage(message.msgBody);
+          setMessage(message);
         }
       });
     }
@@ -90,7 +90,7 @@ function Login() {
             />
             <FormFeedback>{validation.password}</FormFeedback>
           </FormGroup>
-          <Button color="primary" style={{ marginTop: 20 }}>
+          <Button color="primary" style={{ marginTop: 20, marginBottom: 20 }}>
             Login
             {spinner ? (
               <Spinner
